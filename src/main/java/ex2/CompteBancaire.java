@@ -6,16 +6,16 @@ package ex2;
 public class CompteBancaire {
 
 	/** solde : solde du compte */
-	private double solde;
+	protected double solde;
 	
 	/** decouvert : un découvert est autorisé seulement pour les comptes courants */
-	private double decouvert;
+	protected double decouvert;
 	
 	/** tauxRemuneration : taux de rémunération dans le cas d'un livret A */
-	private double tauxRemuneration;
+	protected double tauxRemuneration;
 	
 	/** Le type vaut soit CC=Compte courant, ou soit LA=Livret A */
-	private String type;
+	protected String type;
 	
 	/**
 	 * @param solde
@@ -60,23 +60,18 @@ public class CompteBancaire {
 				this.solde = solde - montant;
 			}	
 		}
-		else if (type.equals("LA")){
-			if (this.solde - montant > 0){
-				this.solde = solde - montant;
-			}	
+//		else if (type.equals("LA")){
+//			if (this.solde - montant > 0){
+//				this.solde = solde - montant;
+//			}
 		}
 	}
-	
-	public void appliquerRemuAnnuelle(){
-		if (type.equals("LA")){
-			this.solde = solde + solde*tauxRemuneration/100;
-		}
-	}
-	
+
 	/** Getter for solde
 	 * @return the solde
 	 */
 	public double getSolde() {
+
 		return solde;
 	}
 	
@@ -84,11 +79,9 @@ public class CompteBancaire {
 	 * @param solde the solde to set
 	 */
 	public void setSolde(double solde) {
+
 		this.solde = solde;
 	}
-	/** Getter for decouvert
-	 * @return the decouvert
-	 */
 	public double getDecouvert() {
 		return decouvert;
 	}
